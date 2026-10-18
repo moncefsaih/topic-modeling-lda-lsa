@@ -3,7 +3,6 @@ import numpy as np
 from langdetect import DetectorFactory, detect
 from sklearn.datasets import fetch_20newsgroups
 
-
 # Fixer la graine pour obtenir des résultats de détection reproductibles
 DetectorFactory.seed = 0
 
@@ -16,7 +15,7 @@ def detect_lang_safe(text):
         # En cas d'erreur (ex. texte contenant uniquement des symboles ou nombres)
         return "unknown"
 
-
+# ÉTAPE 1 : COLLECTE ET PRÉPARATION DU CORPUS
 def get_data():
     categories = ['rec.autos', 'sci.space', 'rec.sport.baseball', 'talk.politics.mideast']
     raw_dataset = fetch_20newsgroups(subset='all', categories=categories, remove=('headers', 'footers', 'quotes'))
@@ -46,6 +45,9 @@ def get_data():
     # Détection de la langue de chaque document
     df['language'] = df['text'].apply(detect_lang_safe)
     return df
+
+
+
 
 
 

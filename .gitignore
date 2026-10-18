@@ -1,0 +1,10 @@
+@"
+envnlp/
+__pycache__/
+*.pyc
+lda_final.model*
+dictionnaire.dict
+resultats_alpha_beta.csv
+*.html
+*.png
+"@ | Set-Content .gitignore
