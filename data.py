@@ -22,7 +22,8 @@ def get_data():
 
     df = pd.DataFrame({
         'doc_id': range(len(raw_dataset.data)),
-        'text': raw_dataset.data
+        'text': raw_dataset.data,
+        'category': [raw_dataset.target_names[i] for i in raw_dataset.target]
     })
 
     # Nettoyage des espaces blancs de début/fin
